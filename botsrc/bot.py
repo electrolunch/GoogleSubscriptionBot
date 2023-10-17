@@ -17,8 +17,8 @@ class BotManager:
         tok = token
         cls.bot = Bot(token=tok)
         cls.dp = Dispatcher(cls.bot,storage=cls.storage)
-        store=JsonSubsStore(r"D:\PProjects\GoogleSubscribe\user_subs.json")
-        results_store=JsonResultsStore(r"D:\PProjects\GoogleSubscribe\user_results.json")
+        store=JsonSubsStore(r"user_subs.json")
+        results_store=JsonResultsStore(r"user_results.json")
         cls.sm = SubscriptionManager(search_engines={'google':GoogleSearchEngine()},store=store,results_store=results_store)
 
 
