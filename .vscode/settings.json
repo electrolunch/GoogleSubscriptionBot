@@ -1,0 +1,9 @@
+{
+    "python.analysis.extraPaths": [
+        "D:\\PProjects\\AnacondaProjects\\DataManager",
+        "C:\\PEnviroments\\env2\\Lib\\site-packages",
+        "C:\\PEnviroments\\env3\\Lib\\site-packages",
+        "D:\\PProjects\\AnacondaProjects\\NetManager",
+        "./google"
+    ]
+}
