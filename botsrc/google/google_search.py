@@ -20,7 +20,7 @@ class GoogleSearchEngine(SearchEngine):
         # Perform a Google search
         # ic(sub.query)
         # ic(sub)
-        res = self.service.cse().list(q=rf"'{sub.query}'", cx='e4af4deb1e26646f8',num=sub.num,dateRestrict=sub.date_restrict).execute() #pylint: disable=no-member
+        res = self.service.cse().list(q=rf'"{sub.query}"', cx='e4af4deb1e26646f8',num=sub.num,dateRestrict=sub.date_restrict).execute() #pylint: disable=no-member
         # ic(res)
         return SearchResult(res)
         # return links
