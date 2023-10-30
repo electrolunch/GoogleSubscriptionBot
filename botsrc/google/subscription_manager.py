@@ -20,7 +20,9 @@ class SubscriptionManager:
         #     self.subscriptions[user_id].append(subscription)
         # else:
         #     self.subscriptions[user_id]=[subscription]
-       
+    def get_subscriptions(self, user_id):
+        return self.store.load_subscriptions(user_id)
+        # return self.subscriptions.get(user_id, [])
 
     def set_timer(self, user_id, timer):
         pass
@@ -41,7 +43,11 @@ class SubscriptionManager:
             new_links = self.results_store.update_results(subscription,result.links,user_id)
             updates[subscription.query]=new_links
         return updates
-
+    def clear_subscriptions(self,user_id):
+        self.store.clear_subscriptions(user_id)
+    def remove_subscription(self,user_id,subscription):
+        self.store.remove_subscription(user_id,subscription)
+        # self.subscriptions[user_id]=[]
     # async def send_updates(self):
     #     # Send updates for all subscriptions
     #     for subscription in self.subscriptions.values():

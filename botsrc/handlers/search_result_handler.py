@@ -14,7 +14,7 @@ async def update_command(message: types.Message):
     for query in updates.keys():
         links = updates[query]
         if not links:
-            await bm.bot.send_message(message.from_user.id, f"Нет новых результатов по запросу {query}\n")
+            # await bm.bot.send_message(message.from_user.id, f"Нет новых результатов по запросу {query}\n")
             continue
         # ic(links)
         # await message.reply(update['query'])

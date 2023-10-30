@@ -11,7 +11,11 @@ class SubsStore:
     def load_subscriptions(self, user_id):
         pass
 
+    def clear_subscriptions(self,user_id):
+        pass
 
+    def remove_subscriptions(self,user_id,subscription):
+        pass
 
 class JsonSubsStore(SubsStore):
     def __init__(self, path):
@@ -19,7 +23,7 @@ class JsonSubsStore(SubsStore):
         self.subscriptions = []
  
 
-    def load_subscriptions(self, user_id):
+    def load_subscriptions(self, user_id)-> list[SearchSubscription]:
         # ic(self.path)
         with open(self.path, 'r') as file:
             text = file.read()
@@ -46,8 +50,8 @@ class JsonSubsStore(SubsStore):
                 data={}
             else:
                 data = json.loads(fileread)
-        ic(data)
-        ic(user_id)
+        # ic(data)
+        # ic(user_id)
         if data.get(str(user_id)):
             data[str(user_id)].append(json_string)
         else:
@@ -56,4 +60,46 @@ class JsonSubsStore(SubsStore):
         with open(self.path, 'w',encoding="utf-8") as file:
             json.dump(data, file)
 
-   
+    def save_subscriptions(self, user_id, subscription:list[SearchSubscription]):
+        json_list=[]
+        for sub in subscription:
+            json_list.append(json.dumps(sub.toJSON()))
+        # json_string = json.dumps(subscription.toJSON())
+        # read json file result.json as dict
+        with open(self.path, 'r') as file:
+            fileread=file.read()
+            if fileread =='':
+                data={}
+            else:
+                data = json.loads(fileread)
+        # ic(data)
+        # ic(user_id)
+        if data.get(str(user_id)):
+            for json_string in json_list:
+                #check if user already has subs
+                if json_string not in data[str(user_id)]:
+                    data[str(user_id)].append(json_string)
+        else:
+            data[str(user_id)]=json_list
+        # WRITE TO file
+        with open(self.path, 'w',encoding="utf-8") as file:
+            json.dump(data, file)
+    
+    def clear_subscriptions(self, user_id):
+        with open(self.path, 'r') as file:
+            fileread=file.read()
+            if fileread =='':
+                data={}
+            else:
+                data = json.loads(fileread)
+                
+        if data.get(str(user_id)):
+            data[str(user_id)].clear()
+
+        with open(self.path, 'w',encoding="utf-8") as file:
+            json.dump(data, file)
+    
+    def remove_subscription(self, user_id, subscription:SearchSubscription):
+        subs=self.load_subscriptions(user_id)
+        subs.remove(subscription)
+        self.save_subscriptions(user_id,subs)
