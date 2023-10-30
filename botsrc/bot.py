@@ -6,7 +6,8 @@ from botsrc.google.subscription_store import JsonSubsStore
 from botsrc.google.union import GoogleSearch
 from services.results_store import JsonResultsStore
 import getpass
-tok=getpass.getpass("Введите Telegram bot token: ")
+# tok=getpass.getpass("Введите Telegram bot token: ")
+tok="6237416859:AAH7RYinJjgOaA1YlVWKOlJlExd9Trbeul8"
 class BotManager:
     bot=None
     dp=None

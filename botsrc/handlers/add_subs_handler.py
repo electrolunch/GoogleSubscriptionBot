@@ -46,8 +46,8 @@ async def show_subscriptions_handler(message: types.Message):
 
     keyboard = types.InlineKeyboardMarkup()
     for sub in subscriptions:
-        button = types.InlineKeyboardButton(text=sub.query, callback_data=f"show_sub:{sub.query}")
-        button_x = types.InlineKeyboardButton(text="X", callback_data=f"delete_sub:{sub.query}")
+        button = types.InlineKeyboardButton(text=sub.query, callback_data=f"show_sub-->{sub.query}")
+        button_x = types.InlineKeyboardButton(text="X", callback_data=f"delete_sub-->{sub.query}")
         keyboard.add(button, button_x)
         # keyboard.add(button_x)
 
@@ -55,17 +55,19 @@ async def show_subscriptions_handler(message: types.Message):
 
 async def delete_subscription(query: CallbackQuery):
     user_id = query.from_user.id
-    query_data = query.data.split(":")
+    query_data = query.data.split("-->")
     sub_query = query_data[1]
+    print(f"{sub_query} is deleted")
     user_id = query.from_user.id
-    subscriptions = bm.sm.get_subscriptions(user_id)
-    for sub in subscriptions:
-        if sub.query == sub_query:
-            bm.sm.remove_subscription(user_id, sub)
-            await query.answer("Subscription removed.")
-            break
-    else:
-        await query.answer("Subscription not found.")
+    bm.sm.remove_subscription(user_id, sub_query)
+    # subscriptions = bm.sm.get_subscriptions(user_id)
+    # for sub in subscriptions:
+    #     if sub.query == sub_query:
+    #         bm.sm.remove_subscription(user_id, sub)
+    #         await query.answer("Subscription removed.")
+    #         break
+    # else:
+    #     await query.answer("Subscription not found.")
             
 def chech_subscription_plan(userid):
     return True
@@ -76,4 +78,4 @@ def register_handlers(dp:Dispatcher):
     dp.register_message_handler(add_quary_handler,state=SubsCommand.quary)
     dp.register_message_handler(show_subscriptions_handler, commands=['show'])
     dp.register_message_handler(clear, commands=['clear'])
-    dp.register_callback_query_handler(delete_subscription, lambda c: c.data.startswith("delete_sub:"))
+    dp.register_callback_query_handler(delete_subscription, lambda c: c.data.startswith("delete_sub"))

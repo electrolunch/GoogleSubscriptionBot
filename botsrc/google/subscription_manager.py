@@ -45,8 +45,8 @@ class SubscriptionManager:
         return updates
     def clear_subscriptions(self,user_id):
         self.store.clear_subscriptions(user_id)
-    def remove_subscription(self,user_id,subscription):
-        self.store.remove_subscription(user_id,subscription)
+    def remove_subscription(self,user_id,sub_query):
+        self.store.remove_subscription(user_id,sub_query)
         # self.subscriptions[user_id]=[]
     # async def send_updates(self):
     #     # Send updates for all subscriptions

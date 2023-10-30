@@ -14,7 +14,7 @@ class SubsStore:
     def clear_subscriptions(self,user_id):
         pass
 
-    def remove_subscriptions(self,user_id,subscription):
+    def remove_subscription(self,user_id,subscription):
         pass
 
 class JsonSubsStore(SubsStore):
@@ -99,7 +99,19 @@ class JsonSubsStore(SubsStore):
         with open(self.path, 'w',encoding="utf-8") as file:
             json.dump(data, file)
     
-    def remove_subscription(self, user_id, subscription:SearchSubscription):
+    def remove_subscription(self, user_id, sub_query):
         subs=self.load_subscriptions(user_id)
-        subs.remove(subscription)
-        self.save_subscriptions(user_id,subs)
+        ic(subs)
+        # ic(subscription)
+
+        subs=[sub for sub in subs if sub.query!=sub_query]
+        ic(subs)
+        json_list=[]
+        for sub in subs:
+            json_list.append(json.dumps(sub.toJSON()))
+
+        data={}
+        data[str(user_id)]=json_list
+
+        with open(self.path, 'w',encoding="utf-8") as file:
+            json.dump(data, file)
