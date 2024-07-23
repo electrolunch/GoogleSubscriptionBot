@@ -1,0 +1,89 @@
+@dogbreath226: Excellent intro. I've been looking forward to seeing what MS did with this research
+@artur50: anyone checked Ollama?
+@user-zv8hn5qe9y: I just want to know the graphrag will extract the ner and relationship，but the original content will embed to the graphrag？hope some can reply me ❤❤
+@john_blues: Please when you do these , evaluate the response for correctness. That fact that it gives 'something' is not nearly sufficient.
+@MrTommyorgryte: Thanks! Great presentation as always! Can you do this using Ollama?
+@sharankumar31: Hi bro kindly could you make a video on, how can i integrate this GraphRAG on phidata, crewai etc... it would be worth it...
+@dhanasekar2113: Wonderful work..
+@henkhbit5748: Great video👍 just saw today about graphrag. You're one of the first covering this. Looking forward for the next video. Graph visualization would be nice 2. Thanks.
+@evertonlimaaleixo1084: Congrats!
+How much cost this process of graph generation using gpt-4o? As I understood, for each chunk you make one request to extract the relation, all right?
+@binaryfaith: Can you do this demo with tabular data?
+@augustus6660: The use of entities + semantic search reminds me of HippoRAG, which is also pretty amazing.
+@PriNovaFX: Thank you, Mervin for your video and bringing this into my attention. Amazing to see that you are using Cody. What do you think, could GraphRag bring benefits to code search too?
+@andrewandreas5795: Does it work with the Claude models?
+@ShishirKumar07: This is great video! Thank you Mervin.
+@arunn2413: What are the use cases for the text genration and embedding models?
+Embedding model: Indexing
+Text Generation:gpt-4o Summarization
+I think text generation is also used here for indexing, does that not involve much cost than naive RAG?
+@iham1313: most common text form is pdf. not txt, not markdown. so how does it deal with REAL documents?
+: thanks
+@ahmadchamseddine6891: There is no support for Ollama. you should have checked before. in the source code only those llm type are supported
+
+
+class LLMType(str, Enum):
+    """LLMType enum class definition."""
+
+    # Embeddings
+    OpenAIEmbedding = "openai_embedding"
+    AzureOpenAIEmbedding = "azure_openai_embedding"
+
+    # Raw Completion
+    OpenAI = "openai"
+    AzureOpenAI = "azure_openai"
+
+    # Chat Completion
+    OpenAIChat = "openai_chat"
+    AzureOpenAIChat = "azure_openai_chat"
+
+    # Debug
+    StaticResponse = "static_response"
+
+    def __repr__(self):
+        """Get a string representation."""
+        return f'"{self.value}"'
+@shawnkratos1347: Waiting on ur next video. Please cover setting this up with ollama and openwebui
+@d4rkg: Nice video, but next time try to give a more popular source for retrieving the info, the poor gpt might probably not have any clue about such an unknown book as the one you used...
+@brandonheaton6197: Have been waiting for microsoft to release graphrag on github.  Followed this channel for being on top of it
+@loicbaconnier9150: all links reference missing 😊
+@KumR: Thanks MP. Can you pl extend this to read csv, pdf, docx and add UI using streamlit too?
+@awakenwithoutcoffee: quite amazing isn't it. From the MS presentation it looked promising but the results took 10x more Tokens + 10x longer to generate (70s for 1 answer). How would we tackle this issue, maybe Groq inferencing could reduce the compute time ?
+Also: can you elaborate more on local vs global search and when to use which ? for the most accurate response maybe we should combine the two into a final answer (?). Exciting indeed, would love to see more benchmarks. 🙏
+@dolife8048: How can this be used practically inside of obsidian, where many people already have a huge database on their own fields of interest? Can you create a tutorial how to implement this in obsidian?
+@ahmedbeji4248: thank you, this is actually really exciting but is there a way to use sentence transformer embedders instead of openai or azure ? its better in my experience to use a custom embedding model trained on my data , the whole system is amazing but if its kept general it will still underperform custom systems tailored for the data 
+If we can customise the chunking ( not token based we can actually maybe either have the chunks ready ( usually i do regex ) and use a custom transformer model ( kinda similar how u can do it in Haystack or llamaindex ) 
+this can be really amazing
+@micbab-vg2mu: Interesting - current RAGs are not good enough for me - maybe this method will be more accurate.
+@svenandreas5947: I wait for the ollama example .... still not sure if i got the definition of community content ..... but awesome video
+@shray5801: The question here is , would this not end up in having an issue with context length?
+@HassanAllaham: This is a powerful video on a powerful tech ... waiting to see what you will do with it ...thanks for the good content 🌹🌹🌹
+@MrBiscuit696: Great video! Gonna try this now
+@KiwiAndCurry: Anyone know the rough token cost for creating the relationships / user query? seems that it would likely be ~5x the cost of setting up a standard RAG.
+@lesptitsoiseaux: I came for the 3d graph I left empty handed.
+@yuzual9506: thx a lot for your work !
+@studiophantomanimation: Can it work with Claude 3.5 sonnet?
+@IdPreferNot1: Knowledge graphs are the future... a definite component to give structure to RAG, reasoning, agentic behavior etc.  That why i think LangGraph and LLamaIndex are 2 frameworks to keep up to date with.
+@figs3284: Are there any ways in which you can use graphrag for coding tasks or code generation, etc? I know that wasn't their main focus with this, but I wonder if it's possible with this system.
+@positivevibe142: Any Local version of this, like private, without API?
+@Jacobstalin: Amazing content sir. This concept much much needed in current time where native RAG lacks at some point. 
+I just wanted to ask how did you create Graph visualisation at starting? [2:57]
+@alew3tube: anybody got ollama running with graphrag?
+@unclecode: Great content! Thanks. Knowledge Graphs are superior to flat RAG systems, enabling complex queries that explore relationships between entities. They allow for more challenging questions that require connecting information, like analyzing Scrooge's actions in context. Knowledge Graphs provide structured relationships, not just text chunks, leading to more insightful answers. This approach is effective for Q&A assistants, as users seek more than just facts. Combining Knowledge Graphs with vector data is ideal. To present the real difference, instead of asking a factual question like "Who is Scrooge?", please try "what part of the story shows Scrooge doing wrong?" This requires an argument and connections between facts. Or ask, "Who is Scrooge and what is the most important thing we understand from his reaction in the story?" Such questions need to retrieve and connect information and facts.
+@GaryDean: seems to be buggy. demonstration did not work on my machine (ubuntu); demonstrations in docs on github also failed.  very buggy. but i guess you can't expect too much from microsoft.  don't bother with this atm; wait till they have sorted it out.
+@xmagcx1: github?
+@dfwblah: Unclear that the results are any better based on what you showed.
+@lucface: How does it fair with CrewAI?
+@oussamaoucouc6134: You are the man , thanks again for your videos, we apreciate that
+@gauravmodi12: How we can see the knowledge graph on UI on Neo4j?
+@agentDueDiligence: Thank you Mervin!
+@jacobriedel5326: Does anyone know a great open source library for a chatbot that is comparable to production chatbots. A lot of enterprise level chatbots are totally lacking in the Gen AI / LLM capabilities but it would be create if developers like us could enhance a base chatbot with our own RAG techniques like GraphRAG
+@artur50: Can it be local?
+@ysy69: powerful!
+@carlshod9024: Hi! Have you try LLamaIndex Graph Rag? What are the main difference between them? Very interesting video bro
+@HerroEverynyan: Thank you for the introduction so soon after the announcement! I'd be really curious to see how it compares with classic RAG on a large text where we ask for specific data, such as the taxes you'd have to pay on dividends according to the fiscal code.
+@adapt_it: This content is really amazing! Thank you!
+@elbosanacHD: Awesome video ! Do you know how does it compare with RAPTOR performance wise ?
+@theindianrover2007: Really like your videos
+@deepanshjha6353: First Blood 🙌
+@theindianrover2007: ❤
